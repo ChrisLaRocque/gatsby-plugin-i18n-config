@@ -1,0 +1,4 @@
+{
+    "private": true,
+    "workspaces": ["gatsby-plugin-i18n-config", "site"]
+  }
