@@ -29,13 +29,13 @@ In the above example, with a single page at `src/pages/index.jsx` the plugin wou
 
 ## Options
 
-### locales
+### `locales`
 
-Array of [UTS Locale Identifiers](https://www.unicode.org/reports/tr35/tr35-59/tr35.html#Identifiers).
+Required. Array of [UTS Locale Identifiers](https://www.unicode.org/reports/tr35/tr35-59/tr35.html#Identifiers).
 
 ### `defaultLocale`
 
-Locale to serve for the 'root' version of the page. Given `src/pages/blog.js` and the following options:
+Optional. Locale to serve for the 'root' version of the page. Given `src/pages/blog.js` and the following options:
 
 ```javascript
 {
@@ -44,7 +44,7 @@ Locale to serve for the 'root' version of the page. Given `src/pages/blog.js` an
 }
 ```
 
-This plugin would create a page at `/en-US/blog/` and `/fr-CA/blog/`. However if the defaultLocale was un-commented and therefore set to 'en-US', the paths for those pages would instead be `/blog/` (still showing en-US content), and `/fr-CA/blog/`.
+This plugin would create a page at `/en-US/blog/` and `/fr-CA/blog/`. However if the defaultLocale was un-commented and therefore set to 'en-US', the paths for those pages would instead be `/blog/` (still showing en-US content), and `/fr-CA/blog/`. This is a slight variation from the Next.js i18n, where a defaultLocale is required and they suggest a middleware to achieve this behavior. Here we only match Next's behavior if the defaultLocale is provided.
 
 ## Usage
 
@@ -63,7 +63,6 @@ This plugin adds the appropriate `lang` attribute to your page's `<html>` tag.
 ## Todo for readme
 
 - How to translate different content (local MD, CMS stuff)
-- Usage (defaults, )
 
 ## References + links
 

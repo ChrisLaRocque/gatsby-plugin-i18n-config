@@ -10,7 +10,7 @@
 exports.pluginOptionsSchema = ({ Joi }) => {
   return Joi.object({
     locales: Joi.array()
-      .default(["en-US"])
+      .required()
       .description(`Array of UTS Locale Identifiers`),
     defaultLocale: Joi.string().description(`Locale for root pages`),
     createRedirects: Joi.boolean()
