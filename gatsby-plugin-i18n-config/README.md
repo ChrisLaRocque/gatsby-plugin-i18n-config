@@ -29,9 +29,22 @@ In the above example, with a single page at `src/pages/index.jsx` the plugin wou
 
 ## Options
 
+### locales
+
+Array of [UTS Locale Identifiers](https://www.unicode.org/reports/tr35/tr35-59/tr35.html#Identifiers).
+
 ### `defaultLocale`
 
-Which locale to use for the 'root' versions of the pages. If omitted every locale is prefixed to the pathname.
+Locale to serve for the 'root' version of the page. Given `src/pages/blog.js` and the following options:
+
+```javascript
+{
+  locales: ['en-US', 'fr-CA'],
+  // defaultLocale: 'en-US'
+}
+```
+
+This plugin would create a page at `/en-US/blog/` and `/fr-CA/blog`. However if the defaultLocale was un-commented and therefore set to 'en-US', the paths for those pages would instead be `/blog/` (still showing en-US content), and `/fr-CA/blog/`.
 
 ## Todo for readme
 
