@@ -1,7 +1,6 @@
 // node.pluginCreator.name to determine if FS or createPage. default-site-plugin = createPage, gatsby-plugin-page-creator = FS.
 /**
  * Later todos:
- * 1. Allow `includeDefaultPath` option to not omit default locale in path
  * 2. Allow delineation for pages made using `createPage` (do you want these pages locale-ified or not)
  * 3. Pass locale in some HOC or maybe just cookie?
  * 4. Create appropriate `createRedirects` for locales based on lang/country (would match Next's detection) - https://support.gatsbyjs.com/hc/en-us/articles/1500003051241-Working-with-Redirects-and-Rewrites
@@ -14,6 +13,9 @@ exports.pluginOptionsSchema = ({ Joi }) => {
       .default(["en-US"])
       .description(`Array of UTS Locale Identifiers`),
     defaultLocale: Joi.string().description(`Locale for root pages`),
+    createRedirects: Joi.boolean()
+      .default(false)
+      .description(`Create redirects based on user language.`),
   });
 };
 exports.onCreatePage = ({ page, actions }, pluginOptions) => {

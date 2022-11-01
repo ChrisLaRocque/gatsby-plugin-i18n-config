@@ -44,7 +44,21 @@ Locale to serve for the 'root' version of the page. Given `src/pages/blog.js` an
 }
 ```
 
-This plugin would create a page at `/en-US/blog/` and `/fr-CA/blog`. However if the defaultLocale was un-commented and therefore set to 'en-US', the paths for those pages would instead be `/blog/` (still showing en-US content), and `/fr-CA/blog/`.
+This plugin would create a page at `/en-US/blog/` and `/fr-CA/blog/`. However if the defaultLocale was un-commented and therefore set to 'en-US', the paths for those pages would instead be `/blog/` (still showing en-US content), and `/fr-CA/blog/`.
+
+## Usage
+
+### Routing
+
+This plugin will automatically create locale-specific versions of each page in your `src/pages` directory.
+
+### Context
+
+Each page created by this plugin gets passed the `locale` as context, making it usable in queries or as props in the page.
+
+### HTML `lang` attribute
+
+This plugin adds the appropriate `lang` attribute to your page's `<html>` tag.
 
 ## Todo for readme
 
