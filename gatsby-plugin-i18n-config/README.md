@@ -1,4 +1,4 @@
-# Yes
+# gatsby-plugin-i18n-config
 
 This plugin is inspired heavily from the internationalization config options provided by Next.js. The hope is you pass it a relatively simple set of locale information, and the plugin will use the `src/pages` directory of your Gatsby site to create duplicates of those pages at locale-specific paths.
 
@@ -66,7 +66,7 @@ This plugin adds the appropriate `lang` attribute to your page's `<html>` tag.
 
 ## References + links
 
-[Next.js internationalization implementation](https://nextjs.org/docs/advanced-features/i18n-routing)
+[Next.js internationalization implementation](https://nextjs.org/docs/advanced-features/i18n-routing)<br>
 Define an `i18n` object in `next.config.js` specifically with a `locales` array for all the locales available on a site.
 Next's i18n guy does a few handy things:
 
