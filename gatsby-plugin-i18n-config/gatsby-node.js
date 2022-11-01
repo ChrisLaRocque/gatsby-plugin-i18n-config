@@ -17,9 +17,9 @@ exports.pluginOptionsSchema = ({ Joi }) => {
   });
 };
 exports.onCreatePage = ({ page, actions }, pluginOptions) => {
-  console.log("page", page);
   // Return early if page isn't from Filesystem or if we've already given it a locale
   if (
+    page.path === "/404.html" ||
     !page.componentChunkName.includes("component---src-pages") || // The plugin option above is almost certainly the right way, but its not present in onCreatePage? Am I crazy? Anyway this will probably break!
     page.context.locale
   ) {
