@@ -31,7 +31,7 @@ In the above example, with a single page at `src/pages/index.jsx` the plugin wou
 
 ### `defaultLocale`
 
-If included, the `defaultLocale`
+Which locale to use for the 'root' versions of the pages. If omitted every locale is prefixed to the pathname.
 
 ## Todo for readme
 

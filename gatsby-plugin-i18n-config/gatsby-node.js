@@ -13,12 +13,11 @@ exports.pluginOptionsSchema = ({ Joi }) => {
     locales: Joi.array()
       .default(["en-US"])
       .description(`Array of UTS Locale Identifiers`),
-    defaultLocale: Joi.string()
-      .default("en-US")
-      .description(`Locale for root pages`),
+    defaultLocale: Joi.string().description(`Locale for root pages`),
   });
 };
 exports.onCreatePage = ({ page, actions }, pluginOptions) => {
+  console.log("page", page);
   // Return early if page isn't from Filesystem or if we've already given it a locale
   if (
     !page.componentChunkName.includes("component---src-pages") || // The plugin option above is almost certainly the right way, but its not present in onCreatePage? Am I crazy? Anyway this will probably break!
@@ -29,7 +28,10 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
   const { createPage, deletePage } = actions;
   for (let locale in pluginOptions.locales) {
     // If default locale, update context but don't modify path
-    if (pluginOptions.locales[locale] === pluginOptions.defaultLocale) {
+    if (
+      pluginOptions.defaultLocale &&
+      pluginOptions.locales[locale] === pluginOptions.defaultLocale
+    ) {
       deletePage(page);
       createPage({
         ...page,
@@ -39,6 +41,10 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
         },
       });
     } else {
+      if (locale == 0) {
+        // is this, in fact, our first rodeo?
+        deletePage(page);
+      }
       // Create net-new page at locale-specific path
       createPage({
         ...page,
